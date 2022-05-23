@@ -15,6 +15,7 @@ Motivation, Anwendungsfälle, Wieso, weshalb, warum
 * Immer mehr Open Source Tools
     * ...
     * ...
+    * MarcEdit (nur Freeware)
 * last but not least: Kommandozeile (grep, head, tail, sort, wc…)
 
 # Anwendungsbeispiel
@@ -23,13 +24,7 @@ Motivation, Anwendungsfälle, Wieso, weshalb, warum
 
 * Basics Kommandozeile
 * pica-rs, picadata, Catmandu..
-* Ergebnis im GND-Dashboard
-
-## Beispiel
-
-~~~sh
-pica-rs
-~~~
+* Beispiel: Ergebnis im GND-Dashboard
 
 # Ausblick (3-4 Folien)
 
