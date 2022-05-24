@@ -32,7 +32,7 @@
 
     - Anwendungsprogramme
 
-3. Integrierte Werkzeuge (WinIBW, BibControl...)
+3. Integrierte/Interne Werkzeuge (WinIBW, FALCON, BibControl...)
 
 ## Allgemeine Datenwerkzeuge {background-image=tools.jpg}
 
@@ -50,31 +50,25 @@
 
 ## Freie Werkzeuge für Bibliotheksdaten {background-image=tools.jpg}
 
-...ungeordnet, ab hier nur Notizen...
-
-- MarcEdit (nur Freeware)
+- Catmandu
 
 - Metafacture
 
-- Catmandu
-
-- pica-rs
+- pica-rs / picadata
 
 - MABLE+/Marcel (KOBV)
 
-- Speziellere (QA Catalogue, Cocoda...)
-
-- ...
+- QA Catalogue, Cocoda...
 
 # Anwendungsbeispiel
 
-## Detailliertes Beispiel mit PICA-Daten (20 Folien)
+## Detailliertes Beispiel mit PICA-Daten (10-20 Folien)
 
 * Basics Kommandozeile
 * pica-rs, picadata, Catmandu..
 * Beispiel: Ergebnis im GND-Dashboard
 
-# Ausblick (3-4 Folien)
+# Ausblick
 
 ## Interoperabilität und Standards
 
@@ -87,9 +81,23 @@
     - PICA Path
     - ...
 
+## Herausforderungen
+
+- Dokumentation, Fortbildung, Einarbeitung
+
+- Softwareentwicklung ist Daueraufgabe
+
+- Entwicklung hängt oft an einzelnen Personen\
+  (Beispiel: MarcEdit, zumal nur Freeware)
+
+- Projektgetriebene Entwicklung selten nachhaltig\
+  (Beispiel: d:swarm)
+
 ## Weiterführende Resourcen
 
-* ...
+* <https://github.com/pro4bib/pica>
+
+* <https://github.com/jorol/processing-marc>
 
 * <https://it-in-bibliotheken.de> (in Vorbereitung)
 
