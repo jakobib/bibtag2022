@@ -5,4 +5,10 @@ author:
   - Nico Wagner (DNB)
 institute: Bibliothekskongress 2022
 date: 2022-05-31
+header-includes: |
+	\usepackage{caption}
+	\captionsetup[figure]{
+      name=,
+      labelsep=none,
+      labelformat=empty}
 ...
