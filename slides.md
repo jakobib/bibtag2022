@@ -60,7 +60,7 @@
 
 - [QA Catalogue](https://pkiraly.github.io/), [Cocoda](https://coli-conc.gbv.de/cocoda/)...
 
-# Anwendungsbeispiele
+# Beispiele
 
 ## Arbeiten auf der Kommandozeile
 
@@ -70,10 +70,9 @@
 
 ## Verkettung von Programmen durch Pipes
 
-- Programme können durch "Pipes" miteinander verkettet werden, wenn die jeweilige Eingabe mit der Ausgabe übereinstimmt
-- Beispiel: Ausgabe der ersten 5 Zeilen in zufälliger Reihenfolge
+- Programme können durch Pipes "|" miteinander verkettet werden
 
-![&nbsp;](img/pipes.png){width=80% margin=auto}
+![&nbsp;](img/pipes.png){width=70% margin=auto}
 
 ```bash
 $ cat FILE | head -5 | shuf
@@ -83,49 +82,43 @@ $ cat FILE | head -5 | shuf
 
 - Integration in Data Science Workflows (Shell-Skripte, Makefiles, Cron-Jobs, DVC)
 - Es stehen eine große Anzahl an Standardwerkzeugen zur Verfügung (`head`, `grep`)
-- Kein bibliothekarisches Spezialwissen nötig
+- Umfangreiches Literatur- und Fortbildungsangebot
 
-## Beispiel: Zählen von PICA-Datensätzen
+## Zählen von PICA-Datensätzen
 
 ```bash
 $ wc -l DUMP.dat
-
 1000
 
 $ picadata -f plus DUMP.dat
-
 1000 records
 36111 fields
 
 $ pica count DUMP.dat
-
 1000 records
 36111 fields
 83814 subfields
 ```
 
-## Beispiel: Filtern von PICA-Datensätzen
+## Filtern von PICA-Datensätzen
 
 ```bash
 $ pica filter -s \
     "002@.0 =^ 'Tp' && 028A.a == 'Goethe'" \
     | pica count --records
-
 14
 
 $ pica filter -s "002@.0 =^ 'Tp' && 028A.a == 'Goethe'" \
-    | picadata -2 -f plain -t json "003@|028A"
-
+    | picadata -2 -f plain -t json "028A"
 [["028A","","d","Friedrich","a","Goethe"]]
 [["028A","","d","August","c","von","a","Goethe"]]
 ```
-## Beispiel: Tabellieren von Daten
+## Tabellieren von Daten
 
 ```bash
 $ pica filter -s
     "002@.0 =^ 'Tp' && 028A.a == 'Goethe'" GND.dat \
     | pica select "003@.0, 028A{a, d}"
-
 117749346,Goethe,Friedrich
 11854022X,Goethe,August
 118540246,Goethe,Katharina Elisabeth
@@ -133,29 +126,99 @@ $ pica filter -s
 ...
 ```
 
-## Beispiel: Häufigkeitsverteilung eines Unterfelds
+## Häufigkeitsverteilung eines Unterfelds
 
 ```bash
 $ pica filter -s "002@.0 =^ 'Tg'" GND.dat \
     | pica frequency -l 3 -H "code,count" "042B.a"
-
 code,count
 XA-IT,30149
 XA-DE-BY,26694
 XA-FR,17452
 ```
 
-## Beispiel: Abfrage per SRU-API
+## Abfrage per SRU-API
 
 ```bash
-$ catmandu convert SRU --base http://sru.k10plus.de/opac-de-627 \
-    --recordSchema picaxml --parser picaxml --query pica.sgd=590 \
+$ catmandu convert SRU \
+    --base http://sru.k10plus.de/opac-de-627 \
+    --recordSchema picaxml \
+    --parser picaxml \
+    --query pica.sgd=590 \
     to PICA --type plain
 ```
 
-## GND-Dashboard..
+## Zwischenfazit
 
-TBD
+- Werkzeuge lassen sich miteinander kombinieren\
+    $\Rightarrow$ Stärken der unterschiedlichen Tools ergänzen sich
+- Erzeugen von Standardformaten (CSV, JSON)\
+    $\Rightarrow$ Programmiersprachen und -bibliotheken nutzen\
+    $\Rightarrow$ Nutzen von allgemeinen Datenwerkzeuge
+
+## GND-Dashboard
+
+- Statistische Auswertungen (Datenbasis PICA+)
+- Selektion und Transformation der Daten mit _pica-rs_
+- Datenaufbereitung und Visualisierung mit Python
+
+## Filtern des Gesamtabzugs
+
+- Gesamtabzug der DNB ist ca. 44GB groß\
+    $\Rightarrow$ Titeldaten (`title.dat`): 38GB\
+    $\Rightarrow$ Normdaten (`gnd.dat`): 5.5GB
+
+```bash
+$ pica filter -s "002@.0 =^ 'T' && !008@.a?" DUMP.dat \
+    -o gnd.dat
+
+$ pica filter -s --invert-match "002@.0 =^ 'T'" DUMP.dat \
+    -o title.dat
+```
+
+## GND-Entitäten gesamt
+
+![&nbsp;](img/gnd_ent_gesamt.png){width=70% margin=right}
+
+```bash
+$ pica count --records gnd.dat
+9.105.935
+```
+
+
+## Entitäten und Katalogisierungslevel
+
+![&nbsp;](img/gnd_ent_typ.png){width=70% margin=right}
+
+```bash
+$ pica frequency --limit 3 "002@.0" gnd.dat
+Tp3,3288170
+Tp1,1197189
+Tb1,1116481
+```
+
+## GND-Systematik
+
+![&nbsp;](img/gnd_sys.png){width=70% margin=right}
+
+```bash
+$ pica frequency --limit 3 "042A.a" gnd.dat
+15.3p,186402
+13.4p,129972
+14.1,126224
+```
+
+## GND-Systematik (nur Ts)
+
+![&nbsp;](img/gnd_sys_Ts.png){width=70% margin=right}
+
+```bash
+$ pica filter "002@.0 =^ 'Ts'" gnd.dat \
+    | pica frequency "042A.a"
+22.5,10146
+30m,9029
+12.4,7671
+```
 
 # Ausblick
 
