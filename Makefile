@@ -1,6 +1,10 @@
 OPTIONS=-s --slide-level 2 -f markdown+implicit_figures --wrap=preserve
 
-all: docs/index.html docs/slides.pdf
+all: html pdf
+
+html: docs/index.html
+
+pdf: docs/slides.pdf
 
 # requires pandoc >= 2.17
 docs/index.html: about.yml slides.md

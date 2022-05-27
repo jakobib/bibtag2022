@@ -1,28 +1,28 @@
-# Bibliotheksdaten {background-image=cataloging.jpg}
+# Bibliotheksdaten {background-image=img/cataloging.jpg}
 
-## Bibliotheksdaten {background-image=cataloging.jpg}
+## Bibliotheksdaten {background-image=img/cataloging.jpg}
 
-- *Grundsätzlich* nicht anders als andere Daten
+- Grundsätzlich nicht anders als andere Daten
 
-- Aber oft Bibliotheksspezifische Metadatenformate\
+- Bibliotheksspezifische **Metadatenformate**\
   (MARC21, MAB2, PICA, ASEQ, METS/MODS, ONIX...)
 
 - Außerhalb von Bibliotheken irrelevant\
   $\Rightarrow$ wenig Support allgemeiner Datenwerkzeuge
 
-- Datenformate altern viel langsamer als Software
+- Datenformate altern langsamer als Software
 
-## Neue Anforderungen an Bibliotheksdaten {background-image=cataloging.jpg}
+## Neue Anforderungen an Bibliotheksdaten {background-image=img/cataloging.jpg}
 
-- Öffnung und Verknüpfung mit anderen Datenbeständen
+- (Linked) Open Data: Verknüpfung mit anderen Daten
 
-- Data Science, Big Data, Visualisierung, Machine-Learning...
+- Data Science, Visualisierung, Machine-Learning...
 
 *Wie mit Bibliotheksdaten umgehen?*
 
-# Werkzeuge {background-image=tools.jpg}
+# Werkzeuge {background-image=img/tools.jpg}
 
-## Werkzeuge für Bibliotheksdaten {background-image=tools.jpg}
+## Werkzeuge für Bibliotheksdaten {background-image=img/tools.jpg}
 
 1. Allgemeine Datenwerkzeuge (z.B. Excel, OpenRefine)
 
@@ -34,7 +34,7 @@
 
 3. Integrierte/Interne Werkzeuge (WinIBW, FALCON, BibControl...)
 
-## Allgemeine Datenwerkzeuge {background-image=tools.jpg}
+## Allgemeine Datenwerkzeuge {background-image=img/tools.jpg}
 
 *Data Science Werkzeugkasten*
 
@@ -48,7 +48,7 @@
 
 - ...
 
-## Freie Werkzeuge für Bibliotheksdaten {background-image=tools.jpg}
+## Freie Werkzeuge für Bibliotheksdaten {background-image=img/tools.jpg}
 
 - [Catmandu](https://librecat.org/)
 
