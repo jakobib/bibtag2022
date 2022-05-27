@@ -32,7 +32,7 @@
 
     - Anwendungsprogramme
 
-3. Integrierte/Interne Werkzeuge (WinIBW, FALCON, BibControl...)
+3. Interne Werkzeuge (WinIBW, FALCON, BibControl...)
 
 ## Allgemeine Datenwerkzeuge {background-image=img/tools.jpg}
 
@@ -50,15 +50,17 @@
 
 ## Freie Werkzeuge für Bibliotheksdaten {background-image=img/tools.jpg}
 
-- [Catmandu](https://librecat.org/)
+- Frameworks
+  - [Catmandu](https://librecat.org/)
+  - [Metafacture](https://metafacture.org/)
 
-- [Metafacture](https://metafacture.org/)
+- Werkzeuge für PICA-Daten
+  - [pica-rs](https://deutsche-nationalbibliothek.github.io/pica-rs/)
+  - [picadata](https://metacpan.org/pod/picadata)
 
-- [pica-rs](https://deutsche-nationalbibliothek.github.io/pica-rs/) / [picadata](https://metacpan.org/pod/picadata)
-
-- [MABLE+/Marcel](https://www.kobv.de/entwicklung/software/)
-
-- [QA Catalogue](https://pkiraly.github.io/), [Cocoda](https://coli-conc.gbv.de/cocoda/)...
+- Weitere: 
+  [MABLE+/Marcel](https://www.kobv.de/entwicklung/software/),
+  [QA Catalogue](https://pkiraly.github.io/)...
 
 # Beispiele
 
@@ -80,8 +82,11 @@ $ cat FILE | head -5 | shuf
 
 ## Vorteile
 
-- Integration in Data Science Workflows (Shell-Skripte, Makefiles, Cron-Jobs, DVC)
+- Integration in Data Science Workflows\
+  (Skripte, Makefiles, Cron-Jobs, Versionskontrolle)
+
 - Es stehen eine große Anzahl an Standardwerkzeugen zur Verfügung (`head`, `grep`)
+
 - Umfangreiches Literatur- und Fortbildungsangebot
 
 ## Zählen von PICA-Datensätzen
@@ -151,12 +156,12 @@ $ catmandu convert SRU \
 ## Zwischenfazit
 
 - Werkzeuge lassen sich miteinander kombinieren\
-    $\Rightarrow$ Stärken der unterschiedlichen Tools ergänzen sich
+    $\Rightarrow$ Stärken der verschiedenen Tools ergänzen sich
 - Erzeugen von Standardformaten (CSV, JSON)\
     $\Rightarrow$ Programmiersprachen und -bibliotheken nutzen\
     $\Rightarrow$ Nutzen von allgemeinen Datenwerkzeuge
 
-## GND-Dashboard
+## Demo: GND-Dashboard
 
 - Statistische Auswertungen (Datenbasis PICA+)
 - Selektion und Transformation der Daten mit _pica-rs_
@@ -220,15 +225,17 @@ $ pica filter "002@.0 =^ 'Ts'" gnd.dat \
 12.4,7671
 ```
 
-# Ausblick
+# Ausblick {background-image=img/ephesus-library.jpg}
 
-## Interoperabilität und Standards
+## Interoperabilität und Standards {background-image=img/ephesus-library.jpg}
 
-- Werkzeuge sollten sich gut mit anderen kombinieren lassen
+- Werkzeuge sollten sich kombinieren lassen
 
-- Einigung auf gemeinsame Standards (Avram, PICA Path, Fix...)
+- Gemeinsame Sprachen (PICA Path, Fix, Avram...)
 
-## Herausforderungen
+- Standardformate
+
+## Herausforderungen {background-image=img/ephesus-library.jpg}
 
 - Dokumentation, Fortbildung, Einarbeitung
 
@@ -240,22 +247,32 @@ $ pica filter "002@.0 =^ 'Ts'" gnd.dat \
 - Projektgetriebene Entwicklung selten nachhaltig\
   (Beispiel: d:swarm)
 
-## Weiterführende Resourcen
+## Weiterführende Resourcen {background-image=img/ephesus-library.jpg}
 
-* Dokumentation der jeweiligen Programme
+- Dokumentation der jeweiligen Programme
 
-* [Einführung in die Verarbeitung von PICA-Daten](https://pro4bib.github.io/pica/)
+- [Einführung in die Verarbeitung von PICA-Daten](https://pro4bib.github.io/pica/)
 
-* [Processing MARC with open source tools](https://github.com/jorol/processing-marc)
+- [Processing MARC with open source tools](https://github.com/jorol/processing-marc)
 
-* [it-in-bibliotheken]<https://it-in-bibliotheken.de> (geplant)
+- [Handbuch IT in Bibliotheken](https://it-in-bibliotheken.de) (geplant)
 
-* Magnus Pfeffer (2016): Open Source Software zur Verarbeitung und Analyse von Metadaten.
+- Magnus Pfeffer (2016): Open Source Software zur Verarbeitung und Analyse von Metadaten.
   Präsentation auf dem 6. Bibliothekskongress. [urn:nbn:de:0290-opus4-24490](http://nbn-resolving.de/urn/resolver.pl?urn:nbn:de:0290-opus4-24490)
 
-## Guter Rat zum Schluss
+## Bildquellen
 
-Datenverarbeitung ist keine Wissenschaft sondern Handwerk!
+Von Wikimedia Commons
 
-Übung macht die Meister*in!
+- [New York Public Library 1923](https://commons.wikimedia.org/wiki/File:Room_100,_including_card_catalogs_(3110117236).jpg)
+
+- [Werkzeuge: CC-BY-SA 4.0 Franz van Duns](https://commons.wikimedia.org/wiki/File:DIY_means_choosing_the_right_tool_for_the_purpose_-_a_watchmaker%27s_nightmare.jpg)
+
+- [Epesus Celsus Library CC-BY-SA 3.0 Benh LIEU SONG](https://commons.wikimedia.org/wiki/File:Ephesus_Celsus_Library_Fa%C3%A7ade.jpg)
+
+## Guter Rat zum Schluss {background-image=img/tools.jpg}
+
+* Datenverarbeitung ist keine Wissenschaft sondern Handwerk!
+
+* Übung macht die Meister*in!
 

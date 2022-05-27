@@ -13,10 +13,14 @@ Vortragsfolien für <https://bid2022.abstractserver.com/program/#/details/presen
 
 ## Bildquellen
 
-tools.jpg
-<https://commons.wikimedia.org/wiki/File:DIY_means_choosing_the_right_tool_for_the_purpose_-_a_watchmaker%27s_nightmare.jpg>
-
 cataloging.jpg:
 <https://commons.wikimedia.org/wiki/File:Room_100,_including_card_catalogs_(3110117236).jpg>
+New York Public Library 1923
 
+tools.jpg
+<https://commons.wikimedia.org/wiki/File:DIY_means_choosing_the_right_tool_for_the_purpose_-_a_watchmaker%27s_nightmare.jpg>
+CC-BY-SA 4.0 Franz van Duns
 
+ephesus-library.jpg:
+<https://commons.wikimedia.org/wiki/File:Ephesus_Celsus_Library_Fa%C3%A7ade.jpg>
+CC-BY-SA 3.0 Benh LIEU SONG

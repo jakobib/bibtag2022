@@ -99,7 +99,8 @@
   <h1 class="title">Werkzeuge zur Analyse von Bibliotheksdaten</h1>
   <p class="author">Jakob Voß (VZG)</p>
   <p class="author">Nico Wagner (DNB)</p>
-  <p class="institute">Bibliothekskongress 2022</p>
+  <p class="institute"><p>Bibliothekskongress 2022<br />
+<a href="https://jakobib.github.io/bibtag2022/" class="uri">https://jakobib.github.io/bibtag2022/</a></p></p>
   <p class="date">2022-05-31</p>
 </section>
 
@@ -141,7 +142,7 @@
 <li><p>Programmierbibliotheken</p></li>
 <li><p>Anwendungsprogramme</p></li>
 </ul></li>
-<li><p>Integrierte/Interne Werkzeuge (WinIBW, FALCON, BibControl…)</p></li>
+<li><p>Interne Werkzeuge (WinIBW, FALCON, BibControl…)</p></li>
 </ol>
 </section>
 <section id="allgemeine-datenwerkzeuge" class="slide level2" data-background-image="img/tools.jpg">
@@ -158,11 +159,19 @@
 <section id="freie-werkzeuge-für-bibliotheksdaten" class="slide level2" data-background-image="img/tools.jpg">
 <h2 data-background-image="img/tools.jpg">Freie Werkzeuge für Bibliotheksdaten</h2>
 <ul>
-<li><p><a href="https://librecat.org/">Catmandu</a></p></li>
-<li><p><a href="https://metafacture.org/">Metafacture</a></p></li>
-<li><p><a href="https://deutsche-nationalbibliothek.github.io/pica-rs/">pica-rs</a> / <a href="https://metacpan.org/pod/picadata">picadata</a></p></li>
-<li><p><a href="https://www.kobv.de/entwicklung/software/">MABLE+/Marcel</a></p></li>
-<li><p><a href="https://pkiraly.github.io/">QA Catalogue</a>, <a href="https://coli-conc.gbv.de/cocoda/">Cocoda</a>…</p></li>
+<li>Frameworks
+<ul>
+<li><a href="https://librecat.org/">Catmandu</a></li>
+<li><a href="https://metafacture.org/">Metafacture</a></li>
+</ul></li>
+<li>Werkzeuge für PICA-Daten
+<ul>
+<li><a href="https://deutsche-nationalbibliothek.github.io/pica-rs/">pica-rs</a></li>
+<li><a href="https://metacpan.org/pod/picadata">picadata</a></li>
+</ul></li>
+<li>Weitere:
+<a href="https://www.kobv.de/entwicklung/software/">MABLE+/Marcel</a>,
+<a href="https://pkiraly.github.io/">QA Catalogue</a>…</li>
 </ul>
 </section></section>
 <section>
@@ -194,9 +203,10 @@
 <section id="vorteile" class="slide level2">
 <h2>Vorteile</h2>
 <ul>
-<li>Integration in Data Science Workflows (Shell-Skripte, Makefiles, Cron-Jobs, DVC)</li>
-<li>Es stehen eine große Anzahl an Standardwerkzeugen zur Verfügung (<code>head</code>, <code>grep</code>)</li>
-<li>Umfangreiches Literatur- und Fortbildungsangebot</li>
+<li><p>Integration in Data Science Workflows<br />
+(Skripte, Makefiles, Cron-Jobs, Versionskontrolle)</p></li>
+<li><p>Es stehen eine große Anzahl an Standardwerkzeugen zur Verfügung (<code>head</code>, <code>grep</code>)</p></li>
+<li><p>Umfangreiches Literatur- und Fortbildungsangebot</p></li>
 </ul>
 </section>
 <section id="zählen-von-pica-datensätzen" class="slide level2">
@@ -258,14 +268,14 @@
 <h2>Zwischenfazit</h2>
 <ul>
 <li>Werkzeuge lassen sich miteinander kombinieren<br />
-<span class="math inline">⇒</span> Stärken der unterschiedlichen Tools ergänzen sich</li>
+<span class="math inline">⇒</span> Stärken der verschiedenen Tools ergänzen sich</li>
 <li>Erzeugen von Standardformaten (CSV, JSON)<br />
 <span class="math inline">⇒</span> Programmiersprachen und -bibliotheken nutzen<br />
 <span class="math inline">⇒</span> Nutzen von allgemeinen Datenwerkzeuge</li>
 </ul>
 </section>
-<section id="gnd-dashboard" class="slide level2">
-<h2>GND-Dashboard</h2>
+<section id="demo-gnd-dashboard" class="slide level2">
+<h2>Demo: GND-Dashboard</h2>
 <ul>
 <li>Statistische Auswertungen (Datenbasis PICA+)</li>
 <li>Selektion und Transformation der Daten mit <em>pica-rs</em></li>
@@ -329,19 +339,20 @@
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ex">12.4,7671</span></span></code></pre></div>
 </section></section>
 <section>
-<section id="ausblick" class="title-slide slide level1">
-<h1>Ausblick</h1>
+<section id="ausblick" class="title-slide slide level1" data-background-image="img/ephesus-library.jpg">
+<h1 data-background-image="img/ephesus-library.jpg">Ausblick</h1>
 
 </section>
-<section id="interoperabilität-und-standards" class="slide level2">
-<h2>Interoperabilität und Standards</h2>
+<section id="interoperabilität-und-standards" class="slide level2" data-background-image="img/ephesus-library.jpg">
+<h2 data-background-image="img/ephesus-library.jpg">Interoperabilität und Standards</h2>
 <ul>
-<li><p>Werkzeuge sollten sich gut mit anderen kombinieren lassen</p></li>
-<li><p>Einigung auf gemeinsame Standards (Avram, PICA Path, Fix…)</p></li>
+<li><p>Werkzeuge sollten sich kombinieren lassen</p></li>
+<li><p>Gemeinsame Sprachen (PICA Path, Fix, Avram…)</p></li>
+<li><p>Standardformate</p></li>
 </ul>
 </section>
-<section id="herausforderungen" class="slide level2">
-<h2>Herausforderungen</h2>
+<section id="herausforderungen" class="slide level2" data-background-image="img/ephesus-library.jpg">
+<h2 data-background-image="img/ephesus-library.jpg">Herausforderungen</h2>
 <ul>
 <li><p>Dokumentation, Fortbildung, Einarbeitung</p></li>
 <li><p>Softwareentwicklung ist Daueraufgabe</p></li>
@@ -351,21 +362,32 @@
 (Beispiel: d:swarm)</p></li>
 </ul>
 </section>
-<section id="weiterführende-resourcen" class="slide level2">
-<h2>Weiterführende Resourcen</h2>
+<section id="weiterführende-resourcen" class="slide level2" data-background-image="img/ephesus-library.jpg">
+<h2 data-background-image="img/ephesus-library.jpg">Weiterführende Resourcen</h2>
 <ul>
 <li><p>Dokumentation der jeweiligen Programme</p></li>
 <li><p><a href="https://pro4bib.github.io/pica/">Einführung in die Verarbeitung von PICA-Daten</a></p></li>
 <li><p><a href="https://github.com/jorol/processing-marc">Processing MARC with open source tools</a></p></li>
-<li><p>[it-in-bibliotheken]<a href="https://it-in-bibliotheken.de" class="uri">https://it-in-bibliotheken.de</a> (geplant)</p></li>
+<li><p><a href="https://it-in-bibliotheken.de">Handbuch IT in Bibliotheken</a> (geplant)</p></li>
 <li><p>Magnus Pfeffer (2016): Open Source Software zur Verarbeitung und Analyse von Metadaten.
 Präsentation auf dem 6. Bibliothekskongress. <a href="http://nbn-resolving.de/urn/resolver.pl?urn:nbn:de:0290-opus4-24490">urn:nbn:de:0290-opus4-24490</a></p></li>
 </ul>
 </section>
-<section id="guter-rat-zum-schluss" class="slide level2">
-<h2>Guter Rat zum Schluss</h2>
-<p>Datenverarbeitung ist keine Wissenschaft sondern Handwerk!</p>
-<p>Übung macht die Meister*in!</p>
+<section id="bildquellen" class="slide level2">
+<h2>Bildquellen</h2>
+<p>Von Wikimedia Commons</p>
+<ul>
+<li><p><a href="https://commons.wikimedia.org/wiki/File:Room_100,_including_card_catalogs_(3110117236).jpg">New York Public Library 1923</a></p></li>
+<li><p><a href="https://commons.wikimedia.org/wiki/File:DIY_means_choosing_the_right_tool_for_the_purpose_-_a_watchmaker%27s_nightmare.jpg">Werkzeuge: CC-BY-SA 4.0 Franz van Duns</a></p></li>
+<li><p><a href="https://commons.wikimedia.org/wiki/File:Ephesus_Celsus_Library_Fa%C3%A7ade.jpg">Epesus Celsus Library CC-BY-SA 3.0 Benh LIEU SONG</a></p></li>
+</ul>
+</section>
+<section id="guter-rat-zum-schluss" class="slide level2" data-background-image="img/tools.jpg">
+<h2 data-background-image="img/tools.jpg">Guter Rat zum Schluss</h2>
+<ul>
+<li><p>Datenverarbeitung ist keine Wissenschaft sondern Handwerk!</p></li>
+<li><p>Übung macht die Meister*in!</p></li>
+</ul>
 </section></section>
     </div>
   </div>
