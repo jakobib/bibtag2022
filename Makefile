@@ -2,8 +2,6 @@ OPTIONS=-s --slide-level 2 -f markdown+implicit_figures --wrap=preserve
 
 all: docs/index.html docs/slides.pdf
 
-slides.md: img/eva-prinzip.png img/pipes.png
-
 # requires pandoc >= 2.17
 docs/index.html: about.yml slides.md
 	pandoc $(OPTIONS) -t revealjs -o $@ $^ -V theme:white -V css:style.css
