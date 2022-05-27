@@ -60,13 +60,94 @@
 
 - QA Catalogue, Cocoda...
 
-# Anwendungsbeispiel
+# Anwendungsbeispiele
 
-## Detailliertes Beispiel mit PICA-Daten (10-20 Folien)
+## Arbeiten auf der Kommandozeile
 
-* Basics Kommandozeile
-* pica-rs, picadata, Catmandu..
-* Beispiel: Ergebnis im GND-Dashboard
+- Programme auf der Kommandozeile folgen im Allgemeinen dem EVA-Prinzip
+
+![&nbsp;](img/eva-prinzip.png){width=80% margin=auto}
+
+## Verkettung von Programmen durch Pipes
+
+- Programme können durch "Pipes" miteinander verkettet werden, wenn die jeweilige Eingabe mit der Ausgabe übereinstimmt
+- Beispiel: Ausgabe der ersten 5 Zeilen in zufälliger Reihenfolge
+
+![&nbsp;](img/pipes.png){width=80% margin=auto}
+
+```bash
+$ cat FILE | head -5 | shuf
+```
+
+## Vorteile
+
+- Integration in Data Science Workflows (Shell-Skripte, Makefiles, Cron-Jobs, DVC)
+- Es stehen eine große Anzahl an Standardwerkzeugen zur Verfügung (`head`, `grep`)
+- Kein bibliothekarisches Spezialwissen nötig
+
+## Beispiel: Zählen von PICA-Datensätzen
+
+```bash
+$ wc -l DUMP.dat
+
+1000
+
+$ picadata -f plus DUMP.dat
+
+1000 records
+36111 fields
+
+$ pica count DUMP.dat
+
+1000 records
+36111 fields
+83814 subfields
+```
+
+## Beispiel: Filtern von PICA-Datensätzen
+
+```bash
+$ pica filter -s \
+    "002@.0 =^ 'Tp' && 028A.a == 'Goethe'" \
+    | pica count --records
+
+14
+
+$ pica filter -s "002@.0 =^ 'Tp' && 028A.a == 'Goethe'" \
+    | picadata -2 -f plain -t xml "003@|028A"
+
+[["028A","","d","Friedrich","a","Goethe"]]
+[["028A","","d","August","c","von","a","Goethe"]]
+```
+## Beispiel: Tabellieren von Daten
+
+```bash
+$ pica filter -s
+    "002@.0 =^ 'Tp' && 028A.a == 'Goethe'" GND.dat \
+    | pica select "003@.0, 028A{a, d}"
+
+117749346,Goethe,Friedrich
+11854022X,Goethe,August
+118540246,Goethe,Katharina Elisabeth
+118628011,Goethe,Christiane
+...
+```
+
+## Beispiel: Häufigkeitsverteilung eines Unterfelds
+
+```bash
+$ pica filter -s "002@.0 =^ 'Tg'" GND.dat \
+    | pica frequency -l 3 -H "code,count" "042B.a"
+
+code,count
+XA-IT,30149
+XA-DE-BY,26694
+XA-FR,17452
+```
+
+## GND-Dashboard..
+
+TBD
 
 # Ausblick
 
