@@ -89,16 +89,13 @@ $ cat FILE | head -5 | shuf
 
 ```bash
 $ wc -l DUMP.dat
-
 1000
 
 $ picadata -f plus DUMP.dat
-
 1000 records
 36111 fields
 
 $ pica count DUMP.dat
-
 1000 records
 36111 fields
 83814 subfields
@@ -110,12 +107,10 @@ $ pica count DUMP.dat
 $ pica filter -s \
     "002@.0 =^ 'Tp' && 028A.a == 'Goethe'" \
     | pica count --records
-
 14
 
 $ pica filter -s "002@.0 =^ 'Tp' && 028A.a == 'Goethe'" \
     | picadata -2 -f plain -t json "003@|028A"
-
 [["028A","","d","Friedrich","a","Goethe"]]
 [["028A","","d","August","c","von","a","Goethe"]]
 ```
@@ -125,7 +120,6 @@ $ pica filter -s "002@.0 =^ 'Tp' && 028A.a == 'Goethe'" \
 $ pica filter -s
     "002@.0 =^ 'Tp' && 028A.a == 'Goethe'" GND.dat \
     | pica select "003@.0, 028A{a, d}"
-
 117749346,Goethe,Friedrich
 11854022X,Goethe,August
 118540246,Goethe,Katharina Elisabeth
@@ -138,7 +132,6 @@ $ pica filter -s
 ```bash
 $ pica filter -s "002@.0 =^ 'Tg'" GND.dat \
     | pica frequency -l 3 -H "code,count" "042B.a"
-
 code,count
 XA-IT,30149
 XA-DE-BY,26694
@@ -148,10 +141,21 @@ XA-FR,17452
 ## Beispiel: Abfrage per SRU-API
 
 ```bash
-$ catmandu convert SRU --base http://sru.k10plus.de/opac-de-627 \
-    --recordSchema picaxml --parser picaxml --query pica.sgd=590 \
+$ catmandu convert SRU \
+    --base http://sru.k10plus.de/opac-de-627 \
+    --recordSchema picaxml \
+    --parser picaxml \
+    --query pica.sgd=590 \
     to PICA --type plain
 ```
+
+## Zwischenfazit
+
+- Werkzeuge lassen sich miteinander kombinieren\
+    $\Rightarrow$ Stärken der unterschiedlichen Tools ergänzen sich
+- Erzeugen von Standardformaten (CSV, JSON)\
+    $\Rightarrow$ Programmiersprachen und -bibliotheken nutzen
+    $\Rightarrow$ Nutzen von allgemeinen Datenwerkzeuge
 
 ## GND-Dashboard..
 
