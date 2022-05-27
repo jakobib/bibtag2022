@@ -50,15 +50,15 @@
 
 ## Freie Werkzeuge für Bibliotheksdaten {background-image=tools.jpg}
 
-- Catmandu
+- [Catmandu](https://librecat.org/)
 
-- Metafacture
+- [Metafacture](https://metafacture.org/)
 
-- pica-rs / picadata
+- [pica-rs](https://deutsche-nationalbibliothek.github.io/pica-rs/) / [picadata](https://metacpan.org/pod/picadata)
 
-- MABLE+/Marcel (KOBV)
+- [MABLE+/Marcel](https://www.kobv.de/entwicklung/software/)
 
-- QA Catalogue, Cocoda...
+- [QA Catalogue](https://pkiraly.github.io/), [Cocoda](https://coli-conc.gbv.de/cocoda/)...
 
 # Anwendungsbeispiele
 
@@ -114,7 +114,7 @@ $ pica filter -s \
 14
 
 $ pica filter -s "002@.0 =^ 'Tp' && 028A.a == 'Goethe'" \
-    | picadata -2 -f plain -t xml "003@|028A"
+    | picadata -2 -f plain -t json "003@|028A"
 
 [["028A","","d","Friedrich","a","Goethe"]]
 [["028A","","d","August","c","von","a","Goethe"]]
@@ -145,6 +145,14 @@ XA-DE-BY,26694
 XA-FR,17452
 ```
 
+## Beispiel: Abfrage per SRU-API
+
+```bash
+$ catmandu convert SRU --base http://sru.k10plus.de/opac-de-627 \
+    --recordSchema picaxml --parser picaxml --query pica.sgd=590 \
+    to PICA --type plain
+```
+
 ## GND-Dashboard..
 
 TBD
@@ -155,12 +163,7 @@ TBD
 
 - Werkzeuge sollten sich gut mit anderen kombinieren lassen
 
-- Einigung auf gemeinsame Standards
-
-    - Datenformate
-    - Avram Schemasprache
-    - PICA Path
-    - ...
+- Einigung auf gemeinsame Standards (Avram, PICA Path, Fix...)
 
 ## Herausforderungen
 
@@ -176,11 +179,13 @@ TBD
 
 ## Weiterführende Resourcen
 
-* <https://github.com/pro4bib/pica>
+* Dokumentation der jeweiligen Programme
 
-* <https://github.com/jorol/processing-marc>
+* [Einführung in die Verarbeitung von PICA-Daten](https://pro4bib.github.io/pica/)
 
-* <https://it-in-bibliotheken.de> (in Vorbereitung)
+* [Processing MARC with open source tools](https://github.com/jorol/processing-marc)
+
+* [it-in-bibliotheken]<https://it-in-bibliotheken.de> (geplant)
 
 * Magnus Pfeffer (2016): Open Source Software zur Verarbeitung und Analyse von Metadaten.
   Präsentation auf dem 6. Bibliothekskongress. [urn:nbn:de:0290-opus4-24490](http://nbn-resolving.de/urn/resolver.pl?urn:nbn:de:0290-opus4-24490)
