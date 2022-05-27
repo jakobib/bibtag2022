@@ -154,12 +154,73 @@ $ catmandu convert SRU \
 - Werkzeuge lassen sich miteinander kombinieren\
     $\Rightarrow$ Stärken der unterschiedlichen Tools ergänzen sich
 - Erzeugen von Standardformaten (CSV, JSON)\
-    $\Rightarrow$ Programmiersprachen und -bibliotheken nutzen
+    $\Rightarrow$ Programmiersprachen und -bibliotheken nutzen\
     $\Rightarrow$ Nutzen von allgemeinen Datenwerkzeuge
 
-## GND-Dashboard..
+## GND-Dashboard
 
-TBD
+- Statistische Auswertungen (Datenbasis PICA+)
+- Selektion und Transformation der Daten mit _pica-rs_
+- Datenaufbereitung und -bereinigung mit Python/Pandas
+- Visualisierung mit Streamlit (Python)
+
+## Filtern der relevanten Daten
+
+- Gesamtabzug der DNB ist ca. 44GB groß\
+    $\Rightarrow$ Titeldaten (title.dat): XXGB\
+    $\Rightarrow$ Normdaten (gnd.dat): XXGB
+
+```bash
+$ pica filter -s "002@.0 =^ 'T' && !008@.a?" DUMP.dat \
+    -o gnd.dat
+
+$ pica filter -s --invert-match "002@.0 =^ 'T'" DUMP.dat \
+    -o title.dat
+```
+
+## GND-Entitäten gesamt
+
+![&nbsp;](img/gnd_ent_gesamt.png){width=60% margin=right}
+
+```bash
+$ pica count --records gnd.dat
+9.105.935
+```
+
+
+## Entitäten und Katalogisierungslevel
+
+![&nbsp;](img/gnd_ent_typ.png){width=80% margin=right}
+
+```bash
+$ pica frequency "002@.0" gnd.dat
+Tp3,3288170
+Tp1,1197189
+Tb1,1116481
+```
+
+## GND-Systematik
+
+![&nbsp;](img/gnd_sys.png){width=80% margin=right}
+
+```bash
+$ pica frequency "042A.a" gnd.dat
+15.3p,186402
+13.4p,129972
+14.1,126224
+```
+
+## GND-Systematik (Sachschlagworte)
+
+![&nbsp;](img/gnd_sys_Ts.png){width=80% margin=right}
+
+```bash
+$ pica filter "002@.0 =^ 'Ts'" gnd.dat \
+    | pica frequency "042A.a"
+22.5,10146
+30m,9029
+12.4,7671
+```
 
 # Ausblick
 
